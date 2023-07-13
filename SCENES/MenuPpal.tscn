@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://pvu35tw42gla"]
+
+[ext_resource type="Script" path="res://CODE/MenuPpal.gd" id="1_x4npf"]
+[ext_resource type="Texture2D" uid="uid://b63jwqeoekfsv" path="res://2D/banner.png" id="2_yiuhq"]
+[ext_resource type="Texture2D" uid="uid://dpvq10now8men" path="res://2D/cabeza Sauron.png" id="3_a42tt"]
+[ext_resource type="Texture2D" uid="uid://y8ecgmt03wmj" path="res://2D/HombreNegocios.png" id="4_ml81x"]
+[ext_resource type="Texture2D" uid="uid://6430hhx6lpe5" path="res://2D/cara.png" id="5_6wkmt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_io8xq"]
+font_size = 54
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.427451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8spfw"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xo0v"]
+font_size = 119
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_x4npf")
+
+[node name="Banner" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(572.75, 323.25)
+scale = Vector2(1.77202, 1.6461)
+texture = ExtResource("2_yiuhq")
+
+[node name="CabezaSauron" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(218, 158)
+texture = ExtResource("3_a42tt")
+
+[node name="HombreNegocios" type="Sprite2D" parent="CabezaSauron"]
+z_as_relative = false
+position = Vector2(4, 277)
+scale = Vector2(0.670732, 0.631892)
+texture = ExtResource("4_ml81x")
+
+[node name="Titulo" type="Label" parent="."]
+offset_left = 300.0
+offset_top = 32.0
+offset_right = 548.0
+offset_bottom = 146.0
+text = "El Juego Oficial"
+label_settings = SubResource("LabelSettings_io8xq")
+
+[node name="Button_Empezar" type="Button" parent="."]
+offset_left = 705.0
+offset_top = 143.0
+offset_right = 1044.32
+offset_bottom = 209.0
+focus_neighbor_top = NodePath("../Button_Salir")
+focus_neighbor_bottom = NodePath("../Button_Salir")
+focus_next = NodePath("../Button_Salir")
+focus_previous = NodePath("../Button_Salir")
+
+[node name="Label" type="Label" parent="Button_Empezar"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 9.0
+offset_right = 278.0
+offset_bottom = 57.0
+text = "Empezar partida (A)"
+label_settings = SubResource("LabelSettings_8spfw")
+
+[node name="Button_Salir" type="Button" parent="."]
+offset_left = 705.0
+offset_top = 232.0
+offset_right = 1044.32
+offset_bottom = 298.0
+focus_neighbor_top = NodePath("../Button_Empezar")
+focus_neighbor_bottom = NodePath("../Button_Empezar")
+focus_next = NodePath("../Button_Empezar")
+focus_previous = NodePath("../Button_Empezar")
+
+[node name="Label" type="Label" parent="Button_Salir"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 9.0
+offset_right = 278.0
+offset_bottom = 57.0
+text = "Salir (B)"
+label_settings = SubResource("LabelSettings_8spfw")
+
+[node name="Button_Instrucciones" type="Button" parent="."]
+offset_left = 705.0
+offset_top = 321.0
+offset_right = 1044.32
+offset_bottom = 387.0
+focus_neighbor_top = NodePath("../Button_Empezar")
+focus_neighbor_bottom = NodePath("../Button_Empezar")
+focus_next = NodePath("../Button_Empezar")
+focus_previous = NodePath("../Button_Empezar")
+
+[node name="Label" type="Label" parent="Button_Instrucciones"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 9.0
+offset_right = 278.0
+offset_bottom = 57.0
+text = "Instrucciones ( X )"
+label_settings = SubResource("LabelSettings_8spfw")
+
+[node name="Cara" type="Sprite2D" parent="."]
+position = Vector2(1388, 731)
+scale = Vector2(0.320312, 0.329167)
+texture = ExtResource("5_6wkmt")
+
+[node name="Label" type="Label" parent="Cara"]
+offset_left = -699.317
+offset_top = -583.291
+offset_right = 892.683
+offset_bottom = -417.291
+text = "NOOOO NO MIRES ESTO!!!!!!"
+label_settings = SubResource("LabelSettings_4xo0v")
+
+[connection signal="pressed" from="Button_Empezar" to="." method="buttonEmpezar"]
+[connection signal="pressed" from="Button_Salir" to="." method="buttonSalir"]
+[connection signal="pressed" from="Button_Instrucciones" to="." method="buttonInstrucciones"]

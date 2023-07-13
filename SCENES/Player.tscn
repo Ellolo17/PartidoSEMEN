@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca245lx83wti1"]
+
+[ext_resource type="Script" path="res://CODE/playerControl.gd" id="1_djy6g"]
+[ext_resource type="PackedScene" uid="uid://43synsff60rl" path="res://3D/Character.blend" id="2_3tal0"]
+[ext_resource type="Script" path="res://CODE/Camera3DFollow.gd" id="3_x0nl8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1vtw2"]
+height = 1.24064
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j6s82"]
+
+[node name="spawnPoint" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("shotgunPoint") groups=["Jugador"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_djy6g")
+shotgunPoint = NodePath("Character/BalaSpawnPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.561401, 0)
+shape = SubResource("CapsuleShape3D_1vtw2")
+
+[node name="Character" parent="CharacterBody3D" instance=ExtResource("2_3tal0")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="CameraPivot" type="Node3D" parent="CharacterBody3D/Character"]
+transform = Transform3D(1.16719e-07, 0, 4.99999, 0, 5, 0, -4.99999, 0, 1.16719e-07, 17.5266, 14.1969, -6.17103e-07)
+
+[node name="CameraObjective" type="Node3D" parent="CharacterBody3D/Character"]
+transform = Transform3D(0.999405, 0, 0.0344984, 0, 1, 0, -0.0344984, 0, 0.999405, -0.417177, 5.55562, -0.0038979)
+
+[node name="BalaSpawnPoint" type="Node3D" parent="CharacterBody3D/Character"]
+transform = Transform3D(-0.0317771, 0, -0.999495, 0, 0.999999, 0, 0.999495, 0, -0.0317771, -6.5431, 2.75231, -1.98976)
+
+[node name="cameraCharacterBody" type="CharacterBody3D" parent="." node_paths=PackedStringArray("cameraPivot", "objectToFollow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.4364, -1.90658)
+script = ExtResource("3_x0nl8")
+cameraPivot = NodePath("../CharacterBody3D/Character/CameraPivot")
+objectToFollow = NodePath("../CharacterBody3D/Character/CameraObjective")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cameraCharacterBody"]
+shape = SubResource("SphereShape3D_j6s82")
+
+[node name="Camera3D" type="Camera3D" parent="cameraCharacterBody/CollisionShape3D"]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0)

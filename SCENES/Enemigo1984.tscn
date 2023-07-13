@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd3tjwp0ga555"]
+
+[ext_resource type="PackedScene" uid="uid://dse2xwap3g4pu" path="res://3D/Enemigo1984.blend" id="1_72yo1"]
+[ext_resource type="Script" path="res://CODE/Enemigo.gd" id="1_ypvj1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ci61"]
+height = 1.27701
+
+[node name="EnemyBody3D" type="CharacterBody3D" groups=["enemigos"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("1_ypvj1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616324, 0)
+shape = SubResource("CapsuleShape3D_5ci61")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+agent_height_offset = 1.0
+
+[node name="Enemigo1984" parent="." instance=ExtResource("1_72yo1")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="BalaSpawnPoint" type="Node3D" parent="Enemigo1984"]
+transform = Transform3D(-0.0317771, 0, -0.999495, 0, 0.999999, 0, 0.999495, 0, -0.0317771, -6.5431, 2.75231, -1.98976)

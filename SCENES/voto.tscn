@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://vf0kuajiy4it"]
+
+[ext_resource type="PackedScene" uid="uid://djg17odfqgj2o" path="res://3D/Voto.blend" id="1_8uyq2"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Voto" parent="." instance=ExtResource("1_8uyq2")]

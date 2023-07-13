@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdo10ylahpwb4"]
+
+[ext_resource type="Texture2D" uid="uid://f6n7opvyn1i5" path="res://2D/Muerte.png" id="1_7hxst"]
+[ext_resource type="Script" path="res://CODE/ButtonMuerte.gd" id="2_wma57"]
+[ext_resource type="Texture2D" uid="uid://6430hhx6lpe5" path="res://2D/cara.png" id="3_hrs7n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_onvc1"]
+font_size = 119
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Muerte" type="Sprite2D" parent="."]
+position = Vector2(580.5, 323.5)
+scale = Vector2(0.600521, 0.591667)
+texture = ExtResource("1_7hxst")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 358.0
+offset_top = 30.0
+offset_right = 865.0
+offset_bottom = 366.0
+text = "Moriste dando tu vida por el partido.
+Pero a la que la luz se apaga, mueres pensando
+\"Que bien que pude votar al SEMEN antes morir. 
+Espero que con mi apoyo, ganen las elecciones\"
+
+Porque el SEMEN es muy bueno"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 429.0
+offset_top = 225.0
+offset_right = 597.0
+offset_bottom = 273.0
+text = "Reintentar"
+script = ExtResource("2_wma57")
+
+[node name="Cara" type="Sprite2D" parent="."]
+position = Vector2(1388, 731)
+scale = Vector2(0.320312, 0.329167)
+texture = ExtResource("3_hrs7n")
+
+[node name="Label" type="Label" parent="Cara"]
+offset_left = -699.317
+offset_top = -583.291
+offset_right = 892.683
+offset_bottom = -417.291
+text = "NOOOO QUE PENA!!!!!!"
+label_settings = SubResource("LabelSettings_onvc1")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

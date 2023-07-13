@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4csr8u5shlnd"]
+
+[ext_resource type="Script" path="res://CODE/instrucciones.gd" id="1_7da0i"]
+[ext_resource type="Texture2D" uid="uid://6430hhx6lpe5" path="res://2D/cara.png" id="2_6pyfw"]
+[ext_resource type="Texture2D" uid="uid://02u0usdht47g" path="res://2D/controles.png" id="2_wwigb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_otapx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ffyw"]
+font_size = 119
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xryjc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_otapx")
+offset_left = 58.0
+offset_top = 56.0
+offset_right = 1112.0
+offset_bottom = 301.0
+text = "Es dia de las elecciones y ya has votado al partido SEMEN, como debe ser. Pero al salir del colegio electoral… 
+¡Hay cientos de votantes de los otros partidos! Estos ignorantes van a hacer que otros partidos puedan ganar y no puedes soportarlo.
+
+Por ello vuelves a casa, coges la escopeta, y sales a la calle a repartir democracia.
+
+Pero hay un problema, ¡los votantes de otros partidos han pensado lo mismo y van a por ti!
+
+Acaba con tantos votantes de los otros partidos como puedas, para mayor gloria del partido SEMEN.
+"
+horizontal_alignment = 1
+script = ExtResource("1_7da0i")
+
+[node name="Cara" type="Sprite2D" parent="Label"]
+position = Vector2(1388, 731)
+scale = Vector2(0.320312, 0.329167)
+texture = ExtResource("2_6pyfw")
+
+[node name="Label" type="Label" parent="Label/Cara"]
+offset_left = -792.976
+offset_top = -947.848
+offset_right = 948.024
+offset_bottom = -449.848
+text = "ESTE JUEGO NO HA SIDO 
+PENSADO PARA JUGARLO 
+A PANTALLA COMPLETA"
+label_settings = SubResource("LabelSettings_3ffyw")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 38.0
+offset_top = 586.0
+offset_right = 95.0
+offset_bottom = 617.0
+text = "Volver (B)"
+
+[node name="Controles" type="Sprite2D" parent="."]
+position = Vector2(809, 496)
+texture = ExtResource("2_wwigb")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 52.0
+offset_top = 372.0
+offset_right = 459.0
+offset_bottom = 476.0
+theme_override_styles/normal = SubResource("StyleBoxLine_xryjc")
+text = "He hecho los controles del mando para que funcione
+en mi ordenador. Si a ti no te va y quieres usar el
+mando, tienes que bajarte el proyecto y abrirlo con
+GODOT 4, y ahi en configuracion poner el control que
+quieres"
+
+[connection signal="pressed" from="Button" to="Label" method="volver"]
